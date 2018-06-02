@@ -1,0 +1,23 @@
+<head>
+<script type="text/javascript" src="E:/google backup/Takeout/YouTube/history/data.json"></script>
+<script>
+var arr = JSON.parse(JSON.stringify(data));
+//arr.length
+function hitVideo(i){
+	if(i == 0){
+		return;
+	}
+	var vidId = arr[i].contentDetails.videoId;
+	var newTab = window.open('https://www.youtube.com/watch?v='+vidId, '_blank');
+	setTimeout(function(){
+		newTab.close();
+		hitVideo(--i);
+	}, 3000);
+}
+hitVideo(arr.length-1);
+
+
+</script>
+<head>
+<body>
+</body>
